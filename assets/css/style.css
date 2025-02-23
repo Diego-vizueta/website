@@ -526,6 +526,29 @@ section .aliados {
 }
 
 
+
+
+
+
+
+/*<!-- CSS para hacer las flechas blancas -->  */
+
+    .custom-arrow {
+        filter: invert(1); /* Convierte las flechas en blancas */
+        width: 50px;
+        height: 50px;
+    }
+
+button11:hover {
+    background: #dde0dd70;
+}
+
+
+
+
+
+
+
 @keyframes sliderleft {
     100% {
         transform:translateX(calc(-100% / 2) );
