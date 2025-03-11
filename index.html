@@ -554,26 +554,62 @@
 
                     <div class="text-center">
                         <input type="hidden" name="_captcha" value="false">        <!-- oculta el recapchat-->
-                         <!-- Redirección después de enviar el formulario -->
-                        <input type="hidden" name="_next" value=" https://diego-vizueta.github.io/page_contacts/ ">
+                         <!-- Redirección después de enviar el formulario
+                        <input type="hidden" name="_next" value=" https://diego-vizueta.github.io/page_contacts/ ">  -->
                         <button type="submit"  class="custom-btn">Enviar Mensaje</button>
                     </div>
-                    
-
-<!-- 
-
-
-                    <div class="text-center">   <button type="submit">Enviar Mensaje </button>
-                        </div> 
-
-                 
-
-                    <div class="text-center">  <button class="btn btn-warning btn-xl text-uppercase disabled" id="submitButton" type="submit"> Enviar Mensaje </button></div>
-
-                    -->
-
 
                 </form>
+
+
+
+
+                <!-- Mensaje de éxito -->
+<div id="successMessage" style="display: none; text-align: center; color: green; margin-top: 10px;">
+    ✅ ¡Mensaje enviado con éxito!
+</div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event){
+    event.preventDefault(); // Evita la recarga de la página
+    
+    var form = this;
+    
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+    }).then(response => {
+        if (response.ok) {
+            document.getElementById("successMessage").style.display = "block"; // Muestra el mensaje
+            form.reset(); // Limpia el formulario
+            setTimeout(() => {
+                window.location.href = "https://diego-vizueta.github.io/page_contacts/";
+            }, 2000); // Redirige después de 2 segundos (opcional)
+        } else {
+            alert("Hubo un error, intenta nuevamente.");
+        }
+    }).catch(error => {
+        alert("Error al enviar el formulario.");
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
             </div>
         </section>
 
@@ -617,15 +653,6 @@
                         </a>
                     
     
-
-
-
-
-
-
-
-
-
 
                       <!--   <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>  
                         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
