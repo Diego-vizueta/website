@@ -565,9 +565,16 @@
 
 
                 <!-- Mensaje de éxito -->
-<div id="successMessage" style="display: none; text-align: center; color: green; margin-top: 10px;">
+
+
+<div id="successMessage" style="display: none; text-align: center; color: green; background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); width: 80%; max-width: 400px; margin: 10px auto;">
     ✅ ¡Mensaje enviado con éxito!
 </div>
+
+   <!--              
+<div id="successMessage" style="display: none; text-align: center; color: green; margin-top: 10px;">
+    ✅ ¡Mensaje enviado con éxito!
+</div>   -->
 
 <script>
 document.getElementById("contactForm").addEventListener("submit", function(event){
@@ -584,7 +591,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
             form.reset(); // Limpia el formulario
             setTimeout(() => {
                 window.location.href = "https://diego-vizueta.github.io/page_contacts/";
-            }, 2000); // Redirige después de 2 segundos (opcional)
+            }, 5000); // Redirige después de 2 segundos (opcional)
         } else {
             alert("Hubo un error, intenta nuevamente.");
         }
