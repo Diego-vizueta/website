@@ -11622,7 +11622,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 
 .client-social1 {
-  list-style: none;          /* sin viñetas */
+ /*  list-style: none;          sin viñetas */
   padding: 0;
   margin: 10px 0;
   display: flex;             /* coloca los <li> en una fila */
