@@ -11639,10 +11639,10 @@ section#contact form#contactForm :-ms-input-placeholder {
   text-decoration: none;
   transition: transform 0.2s ease;
 }
-
+/*
 .client-social1 a:hover {
   transform: scale(1.0); /* agranda al pasar el mouse */
-}
+}  */
 
 
 
