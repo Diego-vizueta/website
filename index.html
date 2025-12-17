@@ -1142,21 +1142,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- fin sección noticias -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-
 
    <!--  inicio de formulario submit -->
 
@@ -1209,93 +1195,110 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <!--    <form id="contactForm" data-sb-form-api-token="API_TOKEN"> --> 
 
-                <form  action="https://formsubmit.co/dvizueta02@gmail.com " method="POST"  id="contactForm"    >
-                  
-                    <div class="row align-items-stretch mb-5  ">
-                        <div class="col-md-6">
-                          
-                            <div class="form-group">
-                                <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre *" data-sb-validations="required" />
-                                <div class="invalid-feedback" name="name" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
-                           
-                            <div class="form-group">
-                                <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder=" Ingresa tu Email *" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" name="email" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" name="email" data-sb-feedback="email:email">Su email no es valido</div>
-                            </div>
-                           
+                <form action="https://formsubmit.co/dvizueta02@gmail.com" 
+      method="POST" 
+      id="contactForm">
 
-                            <div class="form-group mb-md-0">
-                                <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder=" Ingresa tu número *" data-sb-validations="required" />
-                                <div class="invalid-feedback" name="numb" data-sb-feedback="phone:required"> Ingrese su número de celular.</div>
-                            </div>
+    <div class="row align-items-stretch mb-5">
+        <div class="col-md-6">
 
-                        </div>
+            <!-- Nombre -->
+            <div class="form-group">
+                <input class="form-control"
+                       id="name"
+                       name="nombre"
+                       type="text"
+                       placeholder="Ingresa tu nombre *"
+                       required>
+                <div class="invalid-feedback">A name is required.</div>
+            </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <!-- Message input-->
-                                <textarea class="form-control" name="message" id="message" placeholder="Escribe tu mensaje *" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">Tiene que escribir un mensaje.</div>
-                            </div>
-                        </div>
+            <!-- Email -->
+            <div class="form-group">
+                <input class="form-control"
+                       id="email"
+                       name="email"
+                       type="email"
+                       placeholder="Ingresa tu Email *"
+                       required>
+                <div class="invalid-feedback">An email is required.</div>
+                <div class="invalid-feedback">Su email no es válido</div>
+            </div>
 
-                    </div>
-                    <!-- Submit success message-->
-                   
-                    <!-- Submit Button-->
+            <!-- Teléfono -->
+            <div class="form-group mb-md-0">
+                <input class="form-control"
+                       id="phone"
+                       name="telefono"
+                       type="tel"
+                       placeholder="Ingresa tu número *"
+                       required>
+                <div class="invalid-feedback">Ingrese su número de celular.</div>
+            </div>
 
-                    <div class="text-center">
-                        <input type="hidden" name="_captcha" value="false">        <!-- oculta el recapchat-->
-                         <!-- Redirección después de enviar el formulario
-                        <input type="hidden" name="_next" value=" https://diego-vizueta.github.io/page_contacts/ ">  -->
-                        <button type="submit"  class="custom-btn">Enviar Mensaje vía Email </button>
-                    </div>
+        </div>
 
-                </form>
+        <div class="col-md-6">
+            <!-- Mensaje -->
+            <div class="form-group form-group-textarea mb-md-0">
+                <textarea class="form-control"
+                          id="message"
+                          name="mensaje"
+                          placeholder="Escribe tu mensaje *"
+                          required></textarea>
+                <div class="invalid-feedback">Tiene que escribir un mensaje.</div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Configuración FormSubmit -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="Nuevo contacto desde la landing">
 
-                <!-- Mensaje de éxito -->
+    <!-- Botón -->
+    <div class="text-center">
+        <button type="submit" class="custom-btn">
+            Enviar Mensaje vía Email
+        </button>
+    </div>
+</form>
 
-<div id="successMessage" style="display: none; text-align: center; color: green; background-color: white; padding: 10px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); width: 80%; max-width: 400px; margin: 10px auto;">
+<!-- Mensaje de éxito -->
+<div id="successMessage"
+     style="display:none; text-align:center; color:green; background-color:white; padding:10px;
+            border-radius:5px; box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+            width:80%; max-width:400px; margin:10px auto;">
     ✅ ¡Mensaje enviado con éxito!
 </div>
 
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
 
-                <script>
-                document.getElementById("contactForm").addEventListener("submit", function(event){
-                    event.preventDefault(); // Evita la recarga de la página
-                    
-                    var form = this;
-                    
-                    fetch(form.action, {
-                        method: "POST",
-                        body: new FormData(form)
-                    }).then(response => {
-                        if (response.ok) {
-                            document.getElementById("successMessage").style.display = "block"; // Muestra el mensaje
-                            form.reset(); // Limpia el formulario
-                            setTimeout(() => {
-                                window.location.href = "https://diegovizueta.com/";   // redirige a este enlace 
-                            }, 3000); // Redirige después de 3 segundos (opcional)
-                        } else {
-                            alert("Hubo un error, intenta nuevamente.");
-                        }
-                    }).catch(error => {
-                        alert("Error al enviar el formulario.");
-                    });
-                });
-                </script>
-                
-                
-                            </div>
-        </section>
+    const form = this;
 
-                       <!--  fin de formulario submit -->
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById("successMessage").style.display = "block";
+            form.reset();
+
+            setTimeout(() => {
+                window.location.href = "https://diegovizueta.com/";
+            }, 3000);
+        } else {
+            alert("Hubo un error, intenta nuevamente.");
+        }
+    })
+    .catch(() => {
+        alert("Error al enviar el formulario.");
+    });
+});
+</script>
+
 
 
 
