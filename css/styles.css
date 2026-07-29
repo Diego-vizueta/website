@@ -11665,7 +11665,118 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 
 
+/* =========================== ==========================  ==========================  ==========================
+   Fix: Clientes - iconos visibles
+   Añadir a css/styles.css
+   =========================== */
 
+/* Listado y espaciado */
+.client-social,
+.client-social1 {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Elementos de la lista */
+.client-social li,
+.client-social1 li {
+  display: inline-block;
+  margin: 0;
+}
+
+/* Anchors/iconos: círculo, tamaño táctil y contraste por defecto */
+.client-social a,
+.client-social1 a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1;
+  color: #212529; /* color por defecto (oscuro) */
+  background: rgba(0, 0, 0, 0.06); /* ligero fondo para contraste */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: background .16s ease, transform .12s ease, color .12s ease;
+  box-sizing: border-box;
+}
+
+/* Icon <i> dentro del <a> */
+.client-social a i,
+.client-social1 a i {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Hover / focus accesible */
+.client-social a:hover,
+.client-social1 a:hover,
+.client-social a:focus,
+.client-social1 a:focus {
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.12);
+  color: #000;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Mejora accesibilidad: foco visible */
+.client-social a:focus-visible,
+.client-social1 a:focus-visible {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.16);
+}
+
+/* Mobile: aumentar tamaño táctil */
+@media (max-width: 576px) {
+  .client-social a,
+  .client-social1 a {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    font-size: 18px;
+  }
+
+  .client-logo-lg { max-height: 60px; } /* ya en tu CSS, repetido para seguridad */
+}
+
+/* Si en el HTML el enlace tiene color blanco inline (ej. style="color:#ffffff;")
+   respetamos ese color y adaptamos el fondo para visibilidad en fondos oscuros */
+.client-social1 a[style*="color:#ffffff"],
+.client-social1 a[style*="color:#fff"],
+.client-social1 a[style*='color: #ffffff'],
+.client-social1 a[style*='color: #fff'] {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Variante: si el .client-card contiene un fondo oscuro (opcional),
+   puedes añadir manualmente la clase .bg-dark al .client-card para forzar iconos blancos */
+.client-card.bg-dark .client-social a,
+.client-card.bg-dark .client-social1 a {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Evita que iconos se escalen por herencia inesperada */
+.fa-solid, .fa-brands, .fa-regular, .fa-stack, .fa-stack i {
+  font-size: inherit;
+}
+
+/* Pequeños ajustes estéticos para mantener alineación en tarjetas */
+.client-card h4 { margin-top: 0.5rem; margin-bottom: 0.25rem; }
+.client-card h6 { margin-bottom: 0.5rem; font-weight: 400; color: #6c757d; }
 
 
 
