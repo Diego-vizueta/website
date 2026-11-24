@@ -38,17 +38,18 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     };
 
-    // Collapse responsive navbar when toggler is visible
+    // Cierra el menú móvil al tocar un enlace (incluido el botón de WhatsApp)
     const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
+    const navbarResponsive = document.body.querySelector('#navbarResponsive');
+    if (navbarToggler && navbarResponsive) {
+        navbarResponsive.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', () => {
+                if (window.getComputedStyle(navbarToggler).display !== 'none' &&
+                    navbarResponsive.classList.contains('show')) {
+                    bootstrap.Collapse.getOrCreateInstance(navbarResponsive).hide();
+                }
+            });
         });
-    });
+    }
 
 });

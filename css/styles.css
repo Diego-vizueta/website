@@ -11489,11 +11489,6 @@ section#contact form#contactForm :-ms-input-placeholder {
   flex-wrap: wrap;
 }
 
-.item:nth-child(1),
-.item:nth-child(2),
-
-{
-}
 
 
 /*clases carrusel clientes */ 
@@ -11571,6 +11566,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 /* inicio carrusell ---------- img para imagenes clientes*/ 
 
 .client-logo-lg {
+  width: 100%;
   max-width: 280px; /* Doble del tamaño estándar (antes 120px aprox.) */
   margin: 0 auto 20px;
   display: block;
@@ -11641,7 +11637,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 /*
 .client-social1 a:hover {
-  transform: scale(1.0); /* agranda al pasar el mouse */
+  transform: scale(1.0);  agranda al pasar el mouse
 }  */
 
 
